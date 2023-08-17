@@ -1,9 +1,9 @@
 {
-  "name": "ngx-plyr-app",
-  "version": "0.0.0",
+  "name": "@relbraun/ngx-plyr-app",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4201",
     "build:app": "ng build --prod && cp dist/ngx-plyr-app/index.html dist/ngx-plyr-app/404.html",
     "build:lib": "ng build ngx-plyr --prod && cp README.md dist/ngx-plyr && cp LICENSE.md dist/ngx-plyr",
     "test:app": "ng test ngx-plyr-app",
