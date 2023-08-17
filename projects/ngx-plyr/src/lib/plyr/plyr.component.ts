@@ -5,6 +5,11 @@ import { filter, first, switchMap } from 'rxjs/operators';
 import { DefaultPlyrDriver } from '../plyr-driver/default-plyr-driver';
 import { PlyrDriver } from '../plyr-driver/plyr-driver';
 
+export enum CrossOrigin{
+  ANNONYMOUS,
+  USE_CREDENTIALS
+}
+
 @Component({
   selector: 'plyr, [plyr]', // tslint:disable-line
   templateUrl: './plyr.component.html',
@@ -35,7 +40,7 @@ export class PlyrComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   @Input() plyrOptions: Plyr.Options;
 
-  @Input() plyrCrossOrigin: boolean;
+  @Input() plyrCrossOrigin: CrossOrigin;
 
   @Input() plyrPlaysInline: boolean;
 
@@ -186,7 +191,8 @@ export class PlyrComponent implements AfterViewInit, OnChanges, OnDestroy {
       this.videoElement.controls = true;
 
       if (this.plyrCrossOrigin) {
-        this.videoElement.setAttribute('crossorigin', '');
+        const origin = this.plyrCrossOrigin == CrossOrigin.ANNONYMOUS ? '' : 'use-credentials';
+        this.videoElement.setAttribute('crossorigin', origin);
       }
 
       if (this.plyrPlaysInline) {
