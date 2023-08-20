@@ -1,9 +1,14 @@
+import { PlyrDriver, PlyrDriverCreateParams, PlyrDriverDestroyParams, PlyrDriverUpdateSourceParams } from 'ngx-plyr';
 import * as Plyr from '@relbraun/plyr';
-import { PlyrDriver, PlyrDriverCreateParams, PlyrDriverDestroyParams, PlyrDriverUpdateSourceParams } from './plyr-driver';
 
-export class DefaultPlyrDriver implements PlyrDriver {
+
+export class CustomPlyrDriver implements PlyrDriver {
+
+
 
   create(params: PlyrDriverCreateParams) {
+    params.options = {debug: true} ;
+
     return new Plyr(params.videoElement, params.options);
   }
 
@@ -14,5 +19,4 @@ export class DefaultPlyrDriver implements PlyrDriver {
   destroy(params: PlyrDriverDestroyParams) {
     params.plyr.destroy();
   }
-
 }

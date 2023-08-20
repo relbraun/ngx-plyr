@@ -1,4 +1,4 @@
-import * as Plyr from 'plyr';
+import * as Plyr from '@relbraun/plyr';
 import { DefaultPlyrDriver } from './default-plyr-driver';
 
 describe('DefaultPlyrDriver', () => {

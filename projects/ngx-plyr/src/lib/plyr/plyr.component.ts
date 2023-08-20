@@ -1,14 +1,13 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, NgZone, OnChanges, OnDestroy, Output, Renderer2, SimpleChange, ViewChild } from '@angular/core';
-import * as Plyr from 'plyr';
+import * as Plyr from '@relbraun/plyr';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { filter, first, switchMap } from 'rxjs/operators';
 import { DefaultPlyrDriver } from '../plyr-driver/default-plyr-driver';
 import { PlyrDriver } from '../plyr-driver/plyr-driver';
 
-export enum CrossOrigin{
-  ANNONYMOUS,
-  USE_CREDENTIALS
-}
+
+
+export type CrossOrigin = 'anonymous' | 'use-credentials';
 
 @Component({
   selector: 'plyr, [plyr]', // tslint:disable-line
@@ -191,7 +190,7 @@ export class PlyrComponent implements AfterViewInit, OnChanges, OnDestroy {
       this.videoElement.controls = true;
 
       if (this.plyrCrossOrigin) {
-        const origin = this.plyrCrossOrigin == CrossOrigin.ANNONYMOUS ? '' : 'use-credentials';
+        const origin = this.plyrCrossOrigin == 'anonymous' ? '' : 'use-credentials';
         this.videoElement.setAttribute('crossorigin', origin);
       }
 

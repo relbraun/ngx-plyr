@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Plyr from 'plyr';
+import * as Plyr from '@relbraun/plyr';
 import { HlsjsPlyrDriver } from '../hlsjs-plyr-driver/hlsjs-plyr-driver';
 
 @Component({

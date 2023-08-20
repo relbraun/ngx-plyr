@@ -1,6 +1,6 @@
 import 'dashjs/dist/dash.all.min.js';
 import { PlyrDriver, PlyrDriverCreateParams, PlyrDriverDestroyParams, PlyrDriverUpdateSourceParams } from 'ngx-plyr';
-import * as Plyr from 'plyr';
+import * as Plyr from '@relbraun/plyr';
 
 declare const dashjs: any;
 

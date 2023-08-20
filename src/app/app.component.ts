@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { PlyrComponent } from 'ngx-plyr';
-import * as Plyr from 'plyr';
+import * as Plyr from '@relbraun/plyr';
 
 @Component({
   selector: 'app-root',

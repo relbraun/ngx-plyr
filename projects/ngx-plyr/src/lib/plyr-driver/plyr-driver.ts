@@ -1,4 +1,4 @@
-import * as Plyr from 'plyr';
+import * as Plyr from '@relbraun/plyr';
 
 export interface PlyrDriverCreateParams {
   options: Plyr.Options;
