@@ -1,5 +1,6 @@
 {
-  "name": "ngx-plyr",
+  "name": "@relbraun/ngx-plyr",
+  "version": "13.0.0",
   "keywords": [
     "ngx-plyr",
     "ng-plyr",
