@@ -1,5 +1,5 @@
-import * as Plyr from '@relbraun/plyr';
 import { PlyrDriver, PlyrDriverCreateParams, PlyrDriverDestroyParams, PlyrDriverUpdateSourceParams } from './plyr-driver';
+import * as Plyr from '@relbraun/plyr';
 
 export class DefaultPlyrDriver implements PlyrDriver {
 

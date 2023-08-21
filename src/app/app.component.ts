@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { PlyrComponent } from 'ngx-plyr';
 import * as Plyr from '@relbraun/plyr';
+import { CustomPlyrDriver } from './dashjs-plyr-driver/custom-plyr-driver';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,8 @@ export class AppComponent {
 
   // or get it from plyrInit event
   player: Plyr;
+
+  driver = new CustomPlyrDriver();
 
   audioSources = [
     {

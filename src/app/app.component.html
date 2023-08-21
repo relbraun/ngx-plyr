@@ -11,7 +11,7 @@
     <mat-card-title>Video</mat-card-title>
     <mat-card-subtitle>Plyr with custom video as a source</mat-card-subtitle>
 
-    <div mat-card-image plyr plyrTitle="Custom video" [plyrPlaysInline]="true" [plyrCrossOrigin]="'use-credentials'"
+    <div mat-card-image plyr plyrTitle="Custom video" [plyrPlaysInline]="true" [plyrDriver]="driver"
       [plyrPoster]="poster" [plyrSources]="videoSources" [plyrTracks]="tracks" (plyrInit)="player = $event"
       (plyrPlay)="played($event)"></div>
     <mat-card-actions>
@@ -40,8 +40,8 @@
     <mat-card-title>Audio</mat-card-title>
     <mat-card-subtitle>Plyr with audio as a source</mat-card-subtitle>
 
-    <div mat-card-image plyr plyrTitle="Audio" plyrType="audio" [plyrPlaysInline]="true" [plyrCrossOrigin]="'use-credentials'"
-      [plyrSources]="audioSources"></div>
+    <div mat-card-image plyr plyrTitle="Audio" plyrType="audio" [plyrPlaysInline]="true" [plyrCrossOrigin]="'anonymous'"
+      [plyrSources]="audioSources" [plyrDriver]="driver"></div>
 
     <mat-card-actions>
       <a mat-raised-button color="primary" href="https://github.com/smnbbrv/ngx-plyr/tree/master/src/app">Source

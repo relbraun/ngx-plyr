@@ -46,7 +46,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -63,6 +62,14 @@
                   "maximumWarning": "6kb"
                 }
               ]
+            },
+            "dev": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
@@ -74,6 +81,9 @@
           "configurations": {
             "production": {
               "browserTarget": "ngx-plyr-app:build:production"
+            },
+            "dev": {
+              "browserTarget": "ngx-plyr-app:build:dev"
             }
           }
         },
@@ -150,14 +160,17 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-plyr/tsconfig.lib.json",
             "project": "projects/ngx-plyr/ng-package.json"
-          }
-        ,          "configurations": {
+          },
+          "configurations": {
             "production": {
               "tsConfig": "projects/ngx-plyr/tsconfig.lib.prod.json"
+            },
+            "dev": {
+              "tsConfig": "projects/ngx-plyr/tsconfig.lib.json"
             }
           }
 },

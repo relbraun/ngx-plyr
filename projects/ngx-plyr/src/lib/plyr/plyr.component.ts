@@ -97,7 +97,14 @@ export class PlyrComponent implements AfterViewInit, OnChanges, OnDestroy {
   ) {
   }
 
+  ngOninit(){
+    this.driver = this.plyrDriver || new DefaultPlyrDriver();
+
+  }
+
   ngOnChanges(changes: { [p in keyof PlyrComponent]?: SimpleChange; }) {
+    this.driver = this.plyrDriver || new DefaultPlyrDriver();
+
     this.subscriptions.push(this.plyrInit.pipe(first()).subscribe((player: Plyr) => {
       const reinitTriggers = [changes.plyrOptions, changes.plyrPlaysInline, changes.plyrCrossOrigin].filter(t => !!t);
 
@@ -124,8 +131,6 @@ export class PlyrComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (force || !this.player) {
       this.ngZone.runOutsideAngular(() => {
         this.destroyPlayer();
-
-        this.driver = this.plyrDriver || new DefaultPlyrDriver();
 
         this.ensureVideoElement();
 
@@ -190,8 +195,7 @@ export class PlyrComponent implements AfterViewInit, OnChanges, OnDestroy {
       this.videoElement.controls = true;
 
       if (this.plyrCrossOrigin) {
-        const origin = this.plyrCrossOrigin == 'anonymous' ? '' : 'use-credentials';
-        this.videoElement.setAttribute('crossorigin', origin);
+        this.videoElement.setAttribute('crossorigin', this.plyrCrossOrigin);
       }
 
       if (this.plyrPlaysInline) {
